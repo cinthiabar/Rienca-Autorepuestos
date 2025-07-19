@@ -1,0 +1,557 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Outfit:wght@100..900&display=swap');
+
+/*********************
+ * VALORES GENERALES *
+ *********************/
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    list-style: none;
+}
+
+/*Variables con atributos generales para usar en diferentes partes, pero cambiarlo de forma fácil*/
+:root{
+    --titulo: "Outfit", sans-serif;
+    --titulo-seccion-color: #700a0b;
+    --fondo-de-página: #f5f5f5;
+    --menu-color: #920b0d;
+    --menu-hover-color: #6e090b;
+}
+
+body{
+    background-color: var(--fondo-de-página);
+    font-family: "Montserrat", sans-serif;
+    overflow-x: hidden;
+}
+
+/*Atributos que aparecen en varias partes del documento pero deben de ser iguales*/
+/*Titulos de las secciones que hay en la página*/
+.titulo_seccion{
+    width: 80%;
+    display: flex;
+    justify-content: center;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.titulo_seccion h2{
+    font-size: clamp(1rem, calc(5vw + 1rem), 3rem);
+    font-weight: bold;
+    color: var(--titulo-seccion-color);
+}
+
+/*Link para ir a otras páginas*/
+.leermas_container{
+    margin: 0 auto;
+    margin-top: 10px;
+}
+
+.leermas_boton{
+    width: 82px;
+    height: 25px;
+    background-color: transparent;
+    border: 1px solid var(--menu-hover-color);
+}
+
+.leermas_boton a{
+    display: block;
+    padding: 5px 12px;
+    text-decoration: none;
+    color: var(--menu-hover-color);
+}
+
+.leermas_boton a:hover{
+    background-color: var(--menu-hover-color);
+    color: #fff;
+}
+
+/*Animación al hacer scroll*/
+@keyframes appear{
+    from{
+        opacity: 0;
+        scale: 0.8;
+    }
+
+    to{
+        opacity: 1;
+        scale: 1;
+    }
+}
+
+.scroll{
+    animation: appear linear;
+    animation-timeline: view();
+    animation-range: entry 0% cover 30%;
+}
+/**********************/
+
+/**************************
+ * CONTENIDO DE LA PÁGINA *
+ **************************/
+.contenido_principal{
+    width: 100vw;
+    height: 100vh;
+    background-image: url(../image/empresa/empresa.jpg);
+    background-size: cover;
+    position: relative;
+    background-attachment: fixed;
+    color: #fff;
+}
+
+.contenido{
+    width: 100%;
+    height: 100%;
+    background-color: #000a;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding-bottom: 120px;
+    padding-top: 250px;
+}
+
+.contenido h1{
+    width: 100%;
+    height: 18.71rem;
+    margin: 20px 20px 5px 20px;
+    font-family: var(--titulo);
+    font-size: clamp(1rem, calc(5vw + 1rem), 5rem);
+    font-weight: bold;
+    color: var(--fondo-de-página);
+}
+
+.contenido p{
+    width: 50%;
+    height: 18.71rem;
+    margin: 20px;
+    margin-bottom: 15px;
+    padding-top: 3px;
+    font-size: 15px;
+    color: var(--fondo-de-página); 
+}
+/*FIN DE CONTENIDO PRINCIPAL*/
+
+/*INICO DE DATOS BÁSICOS*/
+.section_datos{
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+    margin-bottom: 70px;
+    margin-top: 70px;
+}
+
+.datos_container{
+    display: flex;
+    justify-content: center;
+    margin: 0 auto;
+}
+
+.datos{
+    width: 25%;
+    padding: 40px;
+    margin: 20px;
+    color: #000;
+    text-align: center;
+    font-size: 12px;
+}
+
+.datos img{
+    width: 25px;
+    margin-bottom: 15px;
+}
+/*FIN DE DATOS BÁSICOS*/
+
+/*INICIO DE CONTENEDOR CON INVITACION A LA PÁGINA DE PRODUCTOS*/
+.ver_productos{
+    position: relative;
+    width: 100vw;
+    height: 450px;
+    display: flex;
+    justify-content: space-between;
+    background-color: #ebeaea;
+}
+
+.img_producto{
+    position: absolute;
+    width: 45%;
+    height: 100%;
+}
+
+.img_producto img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.info_producto{
+    position: absolute;
+    width: 50%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    right: 0;
+    text-align: center;
+}
+
+.info_producto h2{
+    width: 100%;
+    margin: 35px 0;
+    font-size: clamp(22px, calc(2vw + 16px), 80px);
+    font-weight: bold;
+    color: var(--titulo-seccion-color);
+}
+
+.info_producto p{
+    width: 60%;
+    font-size: 15px;
+    margin: 0 auto;
+    padding: 15px;
+}
+/*FIN DE PÁGINA DE PRODUCTOS*/
+
+/*INICIO DE INVITACIONES A OTRAS DOS PÁGINAS*/
+.tarjetitas{
+    width: 100vw;
+    margin: 0 auto;
+    padding: 100px 0 70px 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 35px;
+}
+
+.box{
+    display: flex;
+    width: 45%;
+    height: 16rem;
+    margin: 0 auto;
+    margin: 20px 0;
+    background-color: #ece9e9;
+    box-shadow: 0 0 30px #0004;
+}
+
+.texto_info{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    justify-content: center;
+    margin: 15px;
+    padding: 5px;
+}
+
+.texto_info h3{
+    display: flex;
+    font-family: var(--titulo);
+    justify-content: center;
+    margin: 8px;
+    font-weight: 600;
+    font-size: 20px;
+    color: var(--menu-hover-color);
+}
+
+.texto_info p{
+    width: 270px;
+    font-size: 13px;
+    color: #292929;
+    margin: 5px;
+    padding: 0 30px;
+}
+
+.box .img_info img{
+    width: 330px;
+    height: 100%;
+    max-width: 100%;
+    object-fit: cover;
+}
+/*FIN DE INVITACIÓN A LAS OTRAS DOS PÁGINA*/
+
+/*INCIO DE GALERÍA DE FOTOS*/
+.galeria{
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 70px;
+}
+
+.fila{
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    gap: 20px;
+    padding: 0;
+    padding-top: 50px;
+}
+
+.columna img{
+    max-width: 100%;
+    height: auto;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+}
+/*FIN DE GALERIA DE FOTOS*/
+
+/*INICIO DE VISTA PREVIA DE MARCAS*/
+.marcas{
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    margin: 0 auto;
+    padding-bottom: 30px;
+    text-align: center;
+}
+
+.info_marcas{
+    width: 50%;
+    margin: 0 auto;
+    padding: 30px 0;
+    font-size: 15px;
+}
+
+.img_marcas{
+    display: flex;
+    width: 100%;
+    margin: 0 auto;
+    padding: 20px 0;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.img_marcas img{
+    width: 150px;
+    margin: 20px;
+}
+/*FIN DE VISTA PREVIA DE MARCAS*/
+
+/*********************
+ * FIN DE CONTENIDOS *
+ *********************/
+
+/*****************
+ * PIE DE PÁGINA *
+ *****************/
+
+.footer {
+    background-color: #161616;
+    color: #9b9b9b;
+    padding: 40px 20px 20px;
+    font-family: 'Oufit', sans-serif;
+}
+
+.footer-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 30px;
+  max-width: 1200px;
+  margin: auto;
+}
+
+.footer-logo h2 {
+  color: #e63946;
+  margin-bottom: 10px;
+}
+
+.footer-logo p {
+  font-size: 12px;
+  color: #9b9b9b;
+}
+
+.footer-socials {
+  margin-top: 15px;
+}
+
+.footer-socials a {
+  display: inline-block;
+  margin-right: 12px;
+  font-size: 20px;
+  color: #9b9b9b;
+  transition: color 0.3s ease;
+}
+
+.footer-socials a:hover {
+  color: #e63946;
+}
+
+.footer-links h3,
+.footer-contact h3 {
+  color: #cbcccb;
+  margin-bottom: 10px;
+}
+
+.footer-links ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-links ul li {
+  margin-bottom: 8px;
+}
+
+.footer-links ul li a {
+  text-decoration: none;
+  color: #9b9b9b;
+  font-size: 15px;
+  transition: color 0.3s;
+}
+
+.footer-links ul li a:hover {
+  color: #e63946;
+}
+
+.footer-contact p {
+  font-size: 14px;
+  margin-bottom: 8px;
+  color: #9b9b9b;
+}
+
+.footer-contact i {
+  margin-right: 8px;
+  color: #e63946;
+}
+
+.footer-bottom {
+  text-align: center;
+  padding-top: 20px;
+  border-top: 1px solid #9b9b9b;
+  font-size: 13px;
+  color: #9b9b9b;
+}
+/*********************
+ * FIN DE PIE DE PÁGINA *
+ *********************/
+
+
+
+/******************************
+ * PARA DISPOSITIVOS PEQUEÑOS *
+ ******************************/
+@media (max-width: 800px){
+
+    /*************
+    * CONTENIDO *
+    *************/
+
+    /*CONTENIDO PRINCIPAL*/
+    .contenido{
+        padding: 0;
+        padding-top: 310px;
+        padding-bottom: 200px;
+    }
+
+    .contenido h1{
+        padding: 0;
+        margin: 0;
+    }
+
+    .contenido p{
+        width: 100%;
+        padding: 0 50px;
+        height: auto;
+        font-size: 12px;
+        padding-bottom: 30px;
+    }
+
+    /*INICIO DE DATOS BÁSICOS*/
+    .datos_container{
+        width: 90%;
+        gap: 15px;
+        padding-top: 30px;
+        margin: 0 auto;
+    }
+
+    .datos_container img{
+        width: 25px;
+    }
+
+    .datos{
+        width: 90%;
+        padding: 0;
+        margin: 0 auto;
+        font-size: 10px;
+    }
+
+    /*INICIO DE INVITACIÓN A VER PRODUCTOS*/
+    .info_producto{
+        margin: 0;
+        right: 10px;
+    }
+
+    .info_producto h2{
+        width: 100%;
+    }
+
+    .info_producto p{
+        width: 100%;
+        font-size: 12px;
+    }
+
+    /*INICIO DE TRAJETITAS DE INVITCIÓN A LAS DEMÁS PAGINAS*/
+    .tarjetitas{
+        flex-direction: column;
+    }
+
+    .box{
+        width: 80%;
+    }
+
+    /*INICIO DE GALERÍA DE FOTOS DEL LOCAL*/
+    .galeria{
+        width: 90%;
+        margin: 0 auto;
+    }
+
+    .fila{
+        flex-direction: column;
+        margin-bottom: 50px;
+    }
+
+    .columna img{
+        width: 100%;
+        aspect-ratio: 16 / 9;
+    }
+
+    /*INICIO DE VISTA PREVIA DE MARCAS*/
+    .img_marcas img{
+        margin: 10px;
+        width: 120px;
+    }
+    
+    .info_marcas{
+        font-size: 12px;
+    }
+
+    /* Footer responsive */
+    .footer-container {
+        flex-direction: column;
+        align-items: flex-start; 
+        text-align: center;
+    }
+
+    .footer-logo,
+    .footer-links,
+    .footer-contact {
+        width: 100%;
+    }
+
+    .footer-socials {
+        justify-content: center;
+    }
+
+    /* Logos responsive */
+    .logos-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .logos-container img {
+        width: 80px;
+    }
+}

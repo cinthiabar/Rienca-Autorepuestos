@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>Contacto - Rienca Autorepuestos</title>
+  <link rel="stylesheet" href="estilos/menu.css">
+  <link rel="stylesheet" href="estilos/marcas.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" referrerpolicy="no-referrer">
+  <link rel="icon" type="text/css" href="image/marcarienca.ico">
+</head>
+<body>
+
+  <!--Inicio del encabezado de la página-->
+    <header>
+
+        <!--Encabeza donde está el logo de la empresa y links a las redes sociales-->
+        <div class="encabezado_container">
+
+            <!--Contenedor donde se encuentra el logo de la empresa-->
+            <div class="logo_container">
+                <img src="image/empresa/logodelaempresa.png" alt="Logo de la empresa">
+            </div>
+            <!---->
+
+            <!--Contenedor donde se encuentran los links para las redes sociales-->
+            <div class="red-social_container">
+                <a href="https://www.facebook.com/share/1PpXsj2r8R/" target="_blank"><img src="image/iconos/facebook.svg" alt="Facebook"></a>
+                
+                <a href="https://www.instagram.com/riencautorepuestos?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank"><img src="image/iconos/instagram.svg" alt="Instagram"></a>
+            </div>
+            <!---->
+
+        </div>
+        <!--Fin del primer encabezado donde está el logo y las redes sociales-->
+
+        <!--Inicio del menú de navegación-->
+        <nav class="navegador_container">
+
+            <section class="navegador">
+                <ul class="menu">
+                    <li class="menu_item">
+                        <a href="index.html" class="menu_link">Inicio</a>
+                    </li>
+
+                    <li class="menu_item menu_item--show">
+                        <a href="#" class="menu_link">Sobre nosotros <img src="image/iconos/flecha.svg" alt="Flecha" class="flecha"></a>
+                        <ul class="desplegable_menu">
+                            <li class="inside_menu_item">
+                                <a href="historia.html" class="menu_link link_show">Historia</a>
+                            </li>
+
+                            <li class="inside_menu_item">
+                                <a href="misionyvision.html" class="menu_link link_show">Misión y visión</a>
+                            </li>
+                        </ul>
+                    </li>
+
+                    <li class="menu_item">
+                        <a href="productos.html" class="menu_link">Productos</a>
+                    </li>
+
+                    <li class="menu_item">
+                        <a href="marcas.html" class="menu_link">Marcas</a>
+                    </li>
+
+                    <li class="menu_item">
+                        <a href="contacto.html" class="menu_link">Contacto</a>
+                    </li>
+                </ul>
+
+                <!--Menú hamburguesa para dispositivos peueños-->
+                <div class="menu_hamburguesa">
+                    <img src="image/iconos/menu.svg" alt="Menú">
+                </div>
+                <!---->
+            </section>
+            
+        </nav>
+        <!--Fin del menú de navegación-->
+
+    </header>
+    <!--Fin del encabezado de la página-->
+
+  
+  <!--Inicio de enlace al documento de javascript para la animación del menú hamburguesa para dispositivo pequeños-->
+  <script src="js/app.js"></script>
+  <!---->
+
+  <section class="contacto" style="max-width: 800px; margin: 50px auto; margin-top: 180px; padding: 40px; background: #cfcccc; border-radius: 20px; border: 3px solid #6e090b;">
+    <h2 style="color:#6e090b; text-align:center; margin-bottom:20px; text-transform: uppercase;">Contacto</h2>
+    <p style="text-align:center; margin-bottom: 20px; font-size: 1.1rem;">
+      ¿Tenés alguna consulta? Podés escribirnos a través del formulario, por WhatsApp o visitar nuestro local.
+    </p>
+
+    <div class="formulario" id="formulario-whatsapp" style="display:flex; flex-direction:column; gap:15px;">
+      <label for="nombre" style="color:#6e090b; font-weight:600;">Nombre:</label>
+      <input type="text" id="nombre" placeholder="Tu nombre" required style="padding:12px; border-radius:8px; border:1px solid #999; font-size:1rem; outline:none;" />
+
+      <label for="numero" style="color:#6e090b; font-weight:600;">Número:</label>
+      <input type="text" id="numero" placeholder="Tu número de contacto" required style="padding:12px; border-radius:8px; border:1px solid #999; font-size:1rem; outline:none;" />
+
+      <label for="mensaje" style="color:#6e090b; font-weight:600;">Mensaje:</label>
+      <textarea
+        id="mensaje"
+        rows="5"
+        placeholder="Escribí tu mensaje..."
+        required
+        style="padding:12px; border-radius:8px; border:1px solid #999; font-size:1rem; outline:none; resize:vertical;"
+      ></textarea>
+
+      <button
+        onclick="enviarWhatsApp()"
+        style="margin-top:10px; padding:12px 20px; background: linear-gradient(135deg, #d10000, #a30000); color:#fff; font-weight:600; border:none; border-radius:50px; cursor:pointer; transition: all 0.3s ease;"
+        onmouseover="this.style.background='linear-gradient(135deg, #a30000, #d10000)'; this.style.transform='scale(1.05)';"
+        onmouseout="this.style.background='linear-gradient(135deg, #d10000, #a30000)'; this.style.transform='scale(1)';"
+      >
+        Enviar por WhatsApp
+      </button>
+    </div>
+
+    <script>
+      function enviarWhatsApp() {
+        const nombre = document.getElementById('nombre').value.trim();
+        const numero = document.getElementById('numero').value.trim();
+        const mensaje = document.getElementById('mensaje').value.trim();
+
+        if (!nombre || !numero || !mensaje) {
+          alert('Por favor, completá todos los campos.');
+          return;
+        }
+
+        const telefonoDestino = '595991946222';
+        const texto = `Hola, soy ${nombre}. Mi número es ${numero}. Quisiera consultar: ${mensaje}`;
+        const url = `https://wa.me/${telefonoDestino}?text=${encodeURIComponent(texto)}`;
+
+        window.open(url, '_blank');
+      }
+    </script>
+
+    <div class="info" style="margin-top:40px; text-align:center;">
+      <div class="direccion" style="margin-bottom:20px;">
+        <strong style="color:#d10000;">Dirección:</strong> Ruta 1, San Lorenzo 111465
+      </div>
+      <a
+        class="whatsapp-btn"
+        href="https://wa.me/595991946222?text=Hola%2C%20%C2%BFqu%C3%A9%20tal%3F%20Quiero%20consultar%20por%20unos%20repuestos.%20Gracias."
+        target="_blank"
+        style="display:inline-flex; align-items:center; justify-content:center; padding:15px 30px; background: linear-gradient(135deg, #d10000, #a30000); color:#fff; border-radius:50px; font-weight:bold; gap:10px; text-decoration:none; transition: all 0.3s ease;"
+        onmouseover="this.style.background='linear-gradient(135deg, #a30000, #d10000)'; this.style.transform='scale(1.1)';"
+        onmouseout="this.style.background='linear-gradient(135deg, #d10000, #a30000)'; this.style.transform='scale(1)';"
+      >
+        <i class="fab fa-whatsapp"></i> Escribir por WhatsApp
+      </a>
+    </div>
+
+    <div class="redes" style="margin-top:30px; text-align:center;">
+      <p>Seguinos en nuestras redes:</p>
+      <div class="iconos-redes" style="display:flex; justify-content:center; gap:25px; margin-top:10px;">
+        <a href="https://www.facebook.com/p/RIENCA-AUTOREPUESTOS-100091423375659/?locale=es_LA" target="_blank" style="font-size:28px; color:#444; transition:0.3s;">
+          <i class="fab fa-facebook"></i>
+        </a>
+        <a href="https://www.instagram.com/riencautorepuestos/" target="_blank" style="font-size:28px; color:#444; transition:0.3s;">
+          <i class="fab fa-instagram"></i>
+        </a>
+      </div>
+    </div>
+
+    <div class="ubicacion" style="margin-top:40px; border:3px solid #d10000; border-radius:15px; overflow:hidden;">
+      <iframe
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d901.3223550819862!2d-57.48500607155396!3d-25.361614898594503!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x945dada410197979%3A0xf04df62e59f2ee30!2sRIENCA%20AUTOREPUESTOS!5e0!3m2!1sen!2spy!4v1749073385660!5m2!1sen!2spy"
+        width="600"
+        height="450"
+        style="border:0; width:100%; height:300px;"
+        allowfullscreen=""
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade"
+      ></iframe>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer" data-aos="fade-up">
+    <div class="footer-container">
+      <div class="footer-logo">
+        <h2>Rienca Autorepuestos</h2>
+        <p>Calidad y confianza para tu vehículo</p>
+        <div class="footer-socials">
+          <a href="https://facebook.com" target="_blank"><i class="fab fa-facebook-f"></i></a>
+          <a href="https://instagram.com" target="_blank"><i class="fab fa-instagram"></i></a>
+          <a href="https://wa.me/0991946222" target="_blank"><i class="fab fa-whatsapp"></i></a>
+        </div>
+      </div>
+
+      <div class="footer-links">
+        <h3>Enlaces útiles</h3>
+        <ul>
+            <li><a href="index.html">Inicio</a></li>
+            <li><a href="productos.html">Productos</a></li>
+            <li><a href="marcas.html">Marcas</a></li>
+            <li><a href="contacto.html">Contacto</a></li>
+            <li><a href="historia.html">Historia</a></li>
+            <li><a href="misionyvision.html">Misión y visión</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-contact">
+        <h3>Contacto</h3>
+        <p><i class="fas fa-phone-alt"></i> 0991 946 222</p>
+        <p><i class="fas fa-map-marker-alt"></i> R D027 c/ Av. San Pedro (Ex Ruta 1), San Lorenzo</p>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p>&copy; 2025 Rienca Autorepuestos. Todos los derechos reservados.</p>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+  <script>
+    AOS.init({
+      duration: 1000,
+      once: false,
+      easing: "ease-in-out",
+    });
+  </script>
+</body>
+</html>
