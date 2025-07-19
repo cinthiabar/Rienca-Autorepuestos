@@ -247,7 +247,7 @@ h1 {
 }
 
 
-@media screen and (max-width: 800px) {
+@media (max-width: 800px) {
   /* Ajustar la timeline para que se vea vertical */
   .timeline {
     padding-left: 20px;
